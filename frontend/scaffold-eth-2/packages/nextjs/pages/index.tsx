@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
 import { Mint } from "~~/components/Mint";
+import { Propose } from "~~/components/Propose";
 
 const Home: NextPage = () => {
   const { address, isConnecting, isDisconnected } = useAccount();
@@ -25,17 +26,16 @@ const Home: NextPage = () => {
           <div className="flex-grow bg-base-300 w-full mt-16 px-8">
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row my-12">
               <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-                <h3>See info (turn into component with button)</h3>
-                <p>My wallet address is {address}, info on my wallet, info on active last deployed ballot</p>
+                <p>Hello, remember you can only vote for proposals created after you got your voting tokens</p>
               </div>
               <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-                {address && <Mint address={address as `0x${string}`} />}
+                {address && <Mint walletAddress={address as `0x${string}`} />}
               </div>
             </div>
 
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row my-12">
               <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-                <h3>New Ballot</h3>
+                {address && <Propose contractAddress={address as `0x${string}`} />}
               </div>
               <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
                 <h3>Vote</h3>

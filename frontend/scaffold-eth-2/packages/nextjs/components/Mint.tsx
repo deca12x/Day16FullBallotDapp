@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Mint = (params: { address: string }) => {
+export const Mint = (params: { walletAddress: string }) => {
   interface MintData {
     mintTxReceipt: string;
     delegateTxReceipt: string;
@@ -10,7 +10,7 @@ export const Mint = (params: { address: string }) => {
   const [data, setData] = useState<MintData | null>(null);
   const [isLoading, setLoading] = useState(false);
 
-  const body = { walletAddress: params.address };
+  const body = { walletAddress: params.walletAddress };
 
   if (isLoading) return <p>Minting voting tokens...</p>;
 
