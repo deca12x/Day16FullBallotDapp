@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
 import { Mint } from "~~/components/Mint";
-import { Propose } from "~~/components/Propose";
+import { Propose } from "~~/components/Propose3";
 
 const Home: NextPage = () => {
   const { address, isConnecting, isDisconnected } = useAccount();

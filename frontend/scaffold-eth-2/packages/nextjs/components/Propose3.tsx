@@ -13,7 +13,7 @@ interface ProposeProps {
   contractAddress: string;
 }
 
-const Propose: React.FC<ProposeProps> = ({ contractAddress }) => {
+export const Propose: React.FC<ProposeProps> = ({ contractAddress }) => {
   const [data, setData] = useState<ProposeData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [userInput, setUserInput] = useState("");
